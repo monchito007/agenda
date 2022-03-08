@@ -1,0 +1,28 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 4 feb 2022, 9:51:33
+    Author     : Desktop02
+*/
+
+#categorias{
+  border-radius:20px; 
+  float:left;
+  margin-right:20px;
+  padding: 5px 10px;
+}
+
+#categorias a{
+  color: white;
+}
+
+a, a:hover{
+    color: black;
+}
+
+#columnchart_material{
+    height: 500px;
+    
+}
