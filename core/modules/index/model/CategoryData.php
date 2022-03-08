@@ -1,0 +1,62 @@
+<?php
+class CategoryData {
+	public static $tablename = "category";
+
+
+	public function CategoryData(){
+		$this->name = "";
+		$this->lastname = "";
+		$this->email = "";
+		$this->password = "";
+		$this->created_at = "NOW()";
+	}
+
+	public function add(){
+		//$sql = "insert into category (name) ";
+		//$sql .= "value (\"$this->name\")";
+                $sql = "insert into category (name,color) ";
+		$sql .= "value (\"$this->name\",\"$this->color\")";
+		return Executor::doit($sql);
+	}
+
+	public static function delById($id){
+		$sql = "delete from ".self::$tablename." where id=$id";
+		Executor::doit($sql);
+	}
+	public function del(){
+		$sql = "delete from ".self::$tablename." where id=$this->id";
+		Executor::doit($sql);
+	}
+
+// partiendo de que ya tenemos creado un objecto CategoryData previamente utilizamos el contexto
+	public function update(){
+		//$sql = "update ".self::$tablename." set name=\"$this->name\" where id=$this->id";
+		$sql = "update ".self::$tablename." set name=\"$this->name\",color=\"$this->color\" where id=$this->id";
+		Executor::doit($sql);
+	}
+
+	public static function getById($id){
+		$sql = "select * from ".self::$tablename." where id=$id";
+		$query = Executor::doit($sql);
+		return Model::one($query[0],new CategoryData());
+	}
+
+	public static function getAll(){
+		$sql = "select * from ".self::$tablename." ORDER BY 'date_at','time_at' ASC";
+                //$sql = "select * from ".self::$tablename;
+                //SELECT * FROM `event` ORDER BY `date_at`,`time_at` ASC
+		$query = Executor::doit($sql);
+		return Model::many($query[0],new CategoryData());
+
+	}
+	
+	public static function getLike($q){
+		$sql = "select * from ".self::$tablename." where name like '%$q%'";
+		$query = Executor::doit($sql);
+		return Model::many($query[0],new CategoryData());
+	}
+
+
+}
+
+?>
