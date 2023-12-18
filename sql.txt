@@ -1,0 +1,23 @@
+SELECT b.name as "categoria",COUNT(*) as "cantidad", MONTHNAME(a.date_at) as "nombre_mes", MONTH(a.date_at) as "mes", YEAR(a.date_at) as "Año" from event as a,category as b 
+WHERE (( a.date_at <= CURRENT_DATE() and a.time_at <= CURRENT_TIME() ) 
+OR (a.date_at < CURRENT_DATE())) 
+AND a.category_id=b.id 
+AND (b.name="Visitas" OR b.name="Firmadas")
+AND YEAR(a.date_at)=YEAR(CURRENT_TIME())        
+GROUP by MONTH(a.date_at),YEAR(a.date_at),a.category_id
+
+
+SELECT b.name as "categoria",COUNT(*) as "cantidad", MONTHNAME(a.date_at) as "nombre_mes", MONTH(a.date_at) as "mes", YEAR(a.date_at) as "Año" FROM event as a, category as b 
+WHERE a.category_id=b.id 
+AND (b.name="Visitas" OR b.name="Firmadas")
+AND YEAR(a.date_at)="2022"      
+GROUP by MONTH(a.date_at),YEAR(a.date_at),a.category_id
+
+
+
+SELECT b.name as "categoria",COUNT(*) as "cantidad", MONTHNAME(a.date_at) as "nombre_mes", MONTH(a.date_at) as "mes", YEAR(a.date_at) as "Año" FROM event as a, category as b 
+WHERE a.category_id=b.id 
+AND (b.name="Visitas" OR b.name="Firmadas")
+AND YEAR(a.date_at)="2022"
+AND a.date_at BETWEEN '2022-01-01' AND '2022-05-05'
+GROUP by YEAR(a.date_at),a.category_id

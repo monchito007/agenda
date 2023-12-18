@@ -3,8 +3,8 @@ class Database {
 	public static $db;
 	public static $con;
 	function Database(){
-		$this->user="root";$this->pass="";$this->host="localhost";$this->ddbb="yibun";
-		//$this->user="jamesbond";$this->pass="Pellizquito666*";$this->host="PMYSQL154.dns-servicio.com:3306";$this->ddbb="9060392_yibun";
+		//$this->user="root";$this->pass="";$this->host="localhost";$this->ddbb="yibun";
+		$this->user="jamesbond";$this->pass="Pellizquito666*";$this->host="PMYSQL154.dns-servicio.com:3306";$this->ddbb="9060392_yibun";
 	}
 
 	function connect(){

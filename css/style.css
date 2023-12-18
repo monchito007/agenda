@@ -22,7 +22,13 @@ a, a:hover{
     color: black;
 }
 
-#columnchart_material{
-    height: 500px;
+.grafica{
+    height: 300px;
+    
+}
+.totales{
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-bottom: 20px;
     
 }
